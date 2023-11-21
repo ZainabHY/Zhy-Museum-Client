@@ -1,0 +1,30 @@
+<!--User Sign up / Login-->
+
+<div class="form-box">
+    <div class="button-box">
+      <div id="form-btn" [class.register-mode]="!showLoginForm"></div>
+      <button type="button" class="toggle-btn" (click)="toggleForm(true)" [class.active]="showLoginForm" style="margin-left: 15px;">Log In</button>
+      <button type="button" class="toggle-btn" (click)="toggleForm(false)" [class.active]="!showLoginForm" style="margin-left: 25px;">Register</button>
+    </div>
+  
+    <form *ngIf="showLoginForm" class="input-group" id="login">
+        <input type="email" class="input-field" placeholder="Enter Email" required>
+        <input type="password" class="input-field" placeholder="Enter Password" required>
+        <input type="checkbox" class="check-box"><span class="span-pass">Remember Password</span>
+        
+      <button type="submit" class="submit-login">Log in</button>
+    </form>
+  
+    <form *ngIf="!showLoginForm" class="input-group" id="register">
+        <input type="email" class="input-field" placeholder="Enter Email" required>
+        <input type="password" class="input-field" placeholder="Enter Password" required>
+        <br><br><br><br>
+       
+        <button type="submit" class="submit-register">Register</button>
+    </form>
+  </div>
+
+  
+
+  
+  

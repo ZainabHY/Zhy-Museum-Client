@@ -1,0 +1,24 @@
+.header-bg{
+    /* background-color: antiquewhite; */
+    background-color: black;
+}
+
+div {
+    display: flex;
+    /* align-items: center; Center vertically */
+  }
+  
+  
+  .logo {
+    height: 60px;
+    margin: 10px;
+    margin-right: 0px;
+    margin-left: 15px;
+  }
+  
+  /* Styles for app-nav-bar */
+  app-nav-bar {
+    flex-grow: 1; /* Allow the nav bar to take up remaining space */
+    text-align: center; /* Center the content inside app-nav-bar */
+    padding-top: 5px;
+  }

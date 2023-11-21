@@ -1,0 +1,29 @@
+.center-container {
+    display: block;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    /* height: 100vh;           100% of the viewport height */
+}
+  
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+  }
+  
+  nav a {
+    text-decoration: none;
+    margin: 13px;
+    /* color: black; */
+    color: white;
+    padding-top: -10px;
+  }
+  
+  nav a:hover{
+    /* color: rgb(150, 78, 7); */
+    color: rgb(218, 206, 193);
+    transform: scale(1.1); /* (130% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
