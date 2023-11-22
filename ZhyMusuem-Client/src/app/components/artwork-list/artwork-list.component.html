@@ -1,1 +1,55 @@
-<p>artwork-list works!</p>
+<!-- <div class="slideshow">
+  <div *ngFor="let artwork of artworksData; let i = index" [class.active]="i === currentIndex">
+    <img [src]="artworksData[currentIndex].getImagePath()" alt="Artwork Image" width="300" height="auto"/>
+    <h2>{{ artworksData[currentIndex].description }}</h2>
+    <p><strong>Time Spent:</strong> {{ artworksData[currentIndex].timeSpent }}</p>
+    <p><strong>Artwork Type:</strong> {{ artworksData[currentIndex].artworkType }}</p>
+  </div>
+</div>
+
+<button (click)="showPrev()">Previous</button>
+<button (click)="showNext()">Next</button> -->
+
+
+<!-- Works for one image -->
+<!-- <div>
+  <img [src]="artworksData[currentIndex].getImagePath()" alt="Artwork Image" width="300" height="auto"/>
+  <h2>{{ artworksData[currentIndex].description }}</h2>
+  <p>Time Spent: {{ artworksData[currentIndex].timeSpent }}</p>
+  <p>Artwork Type: {{ artworksData[currentIndex].artworkType }}</p>
+</div> -->
+
+
+<!-- Artworks with Slide-show -->
+
+<div class="slideshow">
+  <button class="arrow left" (click)="showPrev()">❮</button>
+  <div *ngFor="let artwork of artworksData; let i = index" [class.active]="i === currentIndex">
+    <div class="img-container" (click)="openSingleArtwork(artwork.id)">
+      <img [src]="artworksData[currentIndex].getImagePath()" alt="Artwork Image" class="img-art"/>
+    </div>
+      <div class="text-over-img">
+      <p style="font-size: 10pt; margin-left: 3px;">{{ artworksData[currentIndex].artworkType.toUpperCase() }}</p>
+      <h2>{{ artworksData[currentIndex].description }}</h2>
+      <p style="margin-left: 3px;"><strong>Time Spent:</strong> {{ artworksData[currentIndex].timeSpent }}</p>
+    </div>
+  </div>
+  <button class="arrow right" (click)="showNext()">❯</button>
+</div>
+
+<!-- with clicking img -->
+
+<!-- <div class="slideshow">
+  <button class="arrow left" (click)="showPrev()">❮</button>
+  <div *ngFor="let artwork of artworksData; let i = index" [class.active]="i === currentIndex">
+    <div class="img-container" (click)="navigateToSingleArtwork(artwork.id)">
+      <img [src]="artwork.getImagePath()" alt="Artwork Image" class="img-art"/>
+    </div>
+    <div class="text-over-img">
+      <p style="font-size: 10pt; margin-left: 3px;">{{ artwork.artworkType.toUpperCase() }}</p>
+      <h2>{{ artwork.description }}</h2>
+      <p style="margin-left: 3px;"><strong>Time Spent:</strong> {{ artwork.timeSpent }}</p>
+    </div>
+  </div>
+  <button class="arrow right" (click)="showNext()">❯</button>
+</div> -->
