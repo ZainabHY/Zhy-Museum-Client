@@ -1,6 +1,12 @@
 .header-bg{
     /* background-color: antiquewhite; */
     background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* z-index to make sure header on top of other elements */
+  
 }
 
 div {
@@ -21,4 +27,19 @@ div {
     flex-grow: 1; /* Allow the nav bar to take up remaining space */
     text-align: center; /* Center the content inside app-nav-bar */
     padding-top: 5px;
+  }
+
+  button{
+    /* height: 100px; */
+    background-color: transparent;
+    color: white;
+    border: 0;
+    margin-right: 20px;
+    font-size: 11pt;
+  }
+
+  button:hover{
+    /* color: rgb(150, 78, 7); */
+    color: rgb(218, 206, 193);
+    transform: scale(1.1); /* (130% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }

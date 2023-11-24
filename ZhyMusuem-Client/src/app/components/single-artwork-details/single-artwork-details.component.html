@@ -1,7 +1,7 @@
 <!-- <p>single-artwork-details works!</p> -->
 
 
-<div *ngIf="artwork">
+<!-- <div *ngIf="artwork">
     <img [src]="artwork.getImagePath()" alt="Artwork Image" />
 
     <div class="text-over-img">
@@ -10,4 +10,66 @@
         <p style="margin-left: 3px;"><strong>Time Spent:</strong> {{ artwork.timeSpent }}</p>
     </div>
 </div>
+ -->
 
+<!-- <div>
+    <div *ngIf="artworksData[currentIndex].artworkType == 'Charcoal'.toUpperCase(); else pencilSection">
+        <img [src]="artworksData[currentIndex].getImagePathCharcoal()" alt="Artwork Image" width="300" height="auto"/>
+        <h2>{{ artworksData[currentIndex].description }}</h2>
+        <p>Time Spent: {{ artworksData[currentIndex].timeSpent }}</p>
+        <p>Artwork Type: {{ artworksData[currentIndex].artworkType }}</p>
+    </div>
+  
+    <ng-template #pencilSection>
+        <img [src]="artworksData[currentIndex].getImagePathPencil()" alt="Artwork Image" width="300" height="auto"/>
+        <h2>{{ artworksData[currentIndex].description }}</h2>
+        <p>Time Spent: {{ artworksData[currentIndex].timeSpent }}</p>
+        <p>Artwork Type: {{ artworksData[currentIndex].artworkType }}</p>
+    </ng-template>
+</div> -->
+
+<!-- works -->
+<!-- <div>
+    <img [src]="getImagePath(artworksData[currentIndex])" alt="Artwork Image" width="300" height="auto"/>
+    <h2>{{ artworksData[currentIndex].description }}</h2>
+    <p>Time Spent: {{ artworksData[currentIndex].timeSpent }}</p>
+    <p>Artwork Type: {{ artworksData[currentIndex].artworkType }}</p>
+  </div>
+   -->
+  <!-- <div *ngIf="artwork">
+    <h2>{{ artwork.description }}</h2>
+    <p><strong>Time Spent:</strong> {{ artwork.timeSpent }}</p>
+    <p>Artwork Type: {{ artwork.artworkType }}</p>
+  </div> -->
+
+
+
+
+  <div class="container">
+    <div class="section1">
+      <!-- Content for Section 1 -->
+      <div *ngIf="choosenArtworkId === artwork.id">
+        <img [src]="getImagePath(artwork)" alt="Artwork Image" width="300" height="auto"/>
+        </div>
+      
+    </div>
+    <div class="section2">
+      <!-- Content for Section 2 -->
+        <h1>{{ artwork.description }}</h1>
+        <hr>
+        <!-- <br><br> -->
+        <p class="txt"><strong>Type of the artwork |</strong> {{ artwork.artworkType.toUpperCase() }}</p> <!-- Type --> 
+        <!-- <p class="txt">{{ artwork.timeSpent }}</p> Date  -->
+        <p class="txt"><strong>Working hours |</strong>{{ artwork.timeSpent }}</p> 
+        
+        <div class="quote">
+            <img src="/assets/images/quote-icon.png" style="height: 30px;">
+            <!-- <p> {{ artwork.quote }}</p> Quote  -->
+            <br>
+            The world alwavs seems brighter when vou've just made something<br>
+            that wasn't there before
+        </div>
+
+    </div>
+  </div>
+  

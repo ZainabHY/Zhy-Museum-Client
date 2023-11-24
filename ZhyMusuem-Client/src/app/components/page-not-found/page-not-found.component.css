@@ -1,0 +1,29 @@
+.not-found-container {
+    text-align: center;
+    padding: 20px;
+    background-color:  #FBF9F5;
+    color: rgb(86, 69, 40);
+
+    margin-bottom: -13%;
+  }
+
+  button{
+    width: 130px;
+    color: rgb(134, 106, 58);
+    font-size: 11pt;
+  }
+  
+  img{
+    width: 60%;
+    height: auto;
+  }
+
+  h1{
+    font-size: 28pt;
+  }
+
+  p{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 13pt;
+  }

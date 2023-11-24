@@ -1,31 +1,43 @@
-<!--User Sign up / Login-->
-
-<div class="form-box">
-    <div class="button-box">
-      <div id="form-btn" [ngStyle]="formBtnStyle"></div>
-      <button type="button" class="toggle-btn" (click)="toggleForm(true)" [class.active]="showLoginForm" style="margin-left: 15px;">Log In</button>
-      <button type="button" class="toggle-btn" (click)="toggleForm(false)" [class.active]="!showLoginForm" style="margin-left: 25px;">Register</button>
+<div class="page-container">
+  <div class="content-container">
+      <!-- <h2>JOIN US</h2> -->
+  </div>
+  <div class="content-container" style="color: whitesmoke;">
+    <div class="about-us">
+      <h1 style="font-size: 22pt;">WHAT'S ON</h1>
+      <hr>
+      <br>
+      <h2>Embark on a journey with the Zhy Museum</h2>
+      <p>
+        Dive into a world of artistic wonders! Our gallery features a mesmerizing blend of<br>
+              charcoal and pencil masterpieces, igniting your passion for creativity. Explore the<br>
+               extraordinary, where every stroke tells a captivating story
+      </p>
     </div>
-  
-    <form *ngIf="showLoginForm" class="input-group" id="login">
-        <input type="email" class="input-field" placeholder="Enter Email" required>
-        <input type="password" class="input-field" placeholder="Enter Password" required>
-        <!-- <input type="checkbox" class="check-box"><span class="span-pass">Remember Password</span> -->
-        <br><br><br><br>
-        
-      <button type="submit" class="submit-login">Log in</button>
-    </form>
-  
-    <form *ngIf="!showLoginForm" class="input-group" id="register">
-        <input type="email" class="input-field" placeholder="Enter Email" required>
-        <input type="password" class="input-field" placeholder="Enter Password" required>
-        <br><br><br><br>
-       
-        <button type="submit" class="submit-register">Register</button>
-    </form>
+    <div class="login-signup">
+      
+<div class="form-box">
+  <div class="button-box">
+    <div id="form-btn" [ngStyle]="formBtnStyle"></div>
+    <!-- <div id="form-btn" ></div> -->
+    <button type="button" class="toggle-btn" routerLink="/login" style="margin-left: 15px;">Log In</button>
+    <button type="button" class="toggle-btn" routerLink="/signup" style="margin-left: 25px;">Register</button>
   </div>
 
-  
+  <form  class="input-group" id="login" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <input type="text" class="input-field" placeholder="Enter Name" formControlName="name">
+      <input type="password" class="input-field" placeholder="Enter Password" formControlName="password">
+      <!-- <input type="checkbox" class="check-box"><span class="span-pass">Remember Password</span> -->
+      <br><br><br><br>
+      
+    <button type="submit" class="submit-login">Log in</button>
+  </form>
 
+
+</div>
+
+    </div>
+  </div>
   
-  
+</div>
+

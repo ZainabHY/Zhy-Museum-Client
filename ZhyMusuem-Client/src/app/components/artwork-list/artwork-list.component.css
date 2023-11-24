@@ -1,11 +1,13 @@
 .img-container{
   /* width: 1000px;*/
+  height: 50%; 
   height: 300px; 
   /* margin: 40px auto; */
   margin-bottom: 0;
   text-align: center;
   overflow: hidden; /* Ensure the image doesn't overflow the container */
   /* object-fit: fill; */
+  border: 0.5px solid black;
 }
 
 .img-art {
@@ -19,7 +21,8 @@
   display: flex;
   overflow: hidden;
   position: relative;
-  width: 1000px; 
+  /* width: 1000px;  */
+  width: 80%;
   padding: 20px;
 
   margin: 50px auto; /* Center the slideshow */
@@ -87,7 +90,8 @@
 }
 
 .text-over-img p{
-  margin-bottom: -15px;
+  margin-bottom: -5px;
+  margin-top: 5px;
 }
 
 .text-over-img h2{

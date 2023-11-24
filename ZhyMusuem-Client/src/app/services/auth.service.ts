@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../models/user.model';
+import { Role } from '../models/Role.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,9 @@ import { User } from '../models/user.model';
 export class AuthService {
   public currentUserSubject = new BehaviorSubject<any>(null); // initializing with no user object since logged out
 
-  readonly API_URL = 'http://localhost:8001';
+  readonly API_URL = 'http://localhost:8001/zhyMuseum';
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   isAuthenticated(): boolean {
     // Get the token from the local storage
@@ -22,7 +21,7 @@ export class AuthService {
     return token !== null;
   }
 
-  authenticate(): Observable<User> {
+  authenticate(): Observable<any> {
     // Get the token from the local storage
     const storedToken: string | null = localStorage.getItem('authToken');
 
@@ -42,34 +41,74 @@ export class AuthService {
 
   }
 
-  register(name: string, email: string, password: string): Observable<User> {
+  register(name: string, email: string, password: string): Observable<any> {
 
-    const user: User = new User(
-      null,
-      name,
-      email,
-      password,
-      []
-    );
+    // const user: User = new User(
+    //   null,
+    //   name,
+    //   email,
+    //   password,
+    //   Role.ARTLOVER
+    // );
+
+    const user: Object = {
+      username: name,
+      email:email,
+      password: password,
+      role: Role.ARTLOVER
+    }
+
     // Register a new user
-    return this.http.post<User>(`${this.API_URL}/auth/signup`, user);
+    return this.http.post(`${this.API_URL}/auth/signup`, user, {responseType: 'text'});
 
   }
 
-  login(email: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<any> {
 
-    const body = {
-      email,
-      password
+    const body : Object = {
+      username: username,
+      password: password
     };
+    console.log(body);
     // Check credentials in the server
-    return this.http.post<any>(`${this.API_URL}/auth/login`, body);
+    return this.http.post(`${this.API_URL}/auth/login`, body, {responseType: 'text'})
+    // .pipe(
+    //   tap((response: any) => {
+    //     // Save token and user information to local storage
+    //     localStorage.setItem('authToken', response.token);
+    //     // localStorage.setItem('currentUser', JSON.stringify(response.user));
+    //     // Notify subscribers about the login status
+    //     // this.currentUserSubject.next(response.user);
+    //   })
+    // );
+
+}
+
+logout(): void {
+  // Remove the token and the user information from local storage to log the user out
+  localStorage.removeItem('authToken');
+  localStorage.removeItem('currentUser');
+  // Notify subscribers about the logout
+  this.currentUserSubject.next(null);
+}
+ 
+ 
+verifToken(): Observable<User> {
+  const storedToken: string | null = localStorage.getItem('currentUser');
+
+  if (storedToken === null){
+    throw null;
   }
 
-  logout(): void {
-      // Remove the token and the user information from local storage to log user out
-      localStorage.removeItem('authToken');
-      localStorage.removeItem('currentUser');
-  }
+  // create authurized header
+  const options = {
+    headers: new HttpHeaders({
+      Authorization: `Bearer ${storedToken}`
+    })
+  };
+
+  const url = `${this.API_URL}/verify`;
+  return this.http.get<User>(url, options);
+}
 
 }

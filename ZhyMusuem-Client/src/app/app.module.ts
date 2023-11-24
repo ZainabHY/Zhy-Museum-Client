@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 // For image slider
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +32,16 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     SingleArtworkDetailsComponent,
     ContactUsComponent,
     PageNotFoundComponent,
-    NavBarComponent
+    NavBarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
